@@ -1,0 +1,20 @@
+* {
+    transition: 3s;
+}
+
+div {
+    color: white;
+    background: rgb(74, 0, 144);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.star {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 44px;
+    position: absolute;
+    left: 40px;
+    top: 100px;
+}
