@@ -1,0 +1,29 @@
+body {
+    background: #333;
+    color: #999;
+    text-align: center;
+}
+
+.board {
+    display: inline-block;
+}
+
+.row{
+    display: flex;
+}
+
+.cel {
+    font-size: 2em;
+    width: 2em;
+    height: 2em;
+    background: #999;
+    border-radius: .5em;
+    display: inline-block;
+    cursor: pointer;
+    color: #333;
+    margin: .1em;
+    line-height: 2em;
+}
+.cel:hover {
+    opacity: .7;
+}
