@@ -1,0 +1,64 @@
+
+
+.panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // padding: 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 3em;
+    background: rgba(0, 0, 0, 0.17);
+    z-index: 1;
+}
+
+.game {
+    position: relative;
+    width: 1400px;
+}
+
+.game-map {
+    width: 1400px;
+    display: inline-block;
+}
+
+.map-block {
+    width: 70px;
+    height: 70px;
+    background-image: url(../assets/img/map.png);
+    display: inline-block;
+}
+
+.b-0, .sky {
+    background: #79c6ff;
+}
+
+.b-2, .ground {
+    background-position: right 286px bottom 70px;
+}
+
+.b-1, .ground-gress{
+    background-position: right 574px bottom 646px;
+}
+
+// round
+// background-position: right 718px bottom 70px;
+
+
+//
+// ------------------------- char ------------------------
+//
+.char{
+    position: absolute;
+    left: 0;
+    top: 560px;
+    width: 70px;
+    height: 70px;
+    background-image: url(../assets/img/char.png);
+    background-size: 810px 376px;
+    background-position: right -343px bottom 168px;
+
+}
+// 405 x 188

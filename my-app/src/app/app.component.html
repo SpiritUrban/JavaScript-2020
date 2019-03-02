@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <div class="panel">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <button (click)="reset()">Reset</button>
+  </div>
+
+
+  <!-- <img src="assets/img/map.png" alt=""> -->
+
+  <div class="game">
+
+    <div class="game-map">
+
+      <!-- Map -->
+      <div class="map-row" *ngFor="let row of game_map">
+        <div class="map-block b-{{block}}" *ngFor="let block of row">
+          {{block}}
+        </div>
+      </div>
+
+    </div>
+
+    <div 
+      class="char" 
+      [style.left]="char.x*70+'px'" 
+      [style.top]="char.y*70+'px'">
+    </div>
+
+  </div>
+
+
+  <!-- <div class="map-block ground"></div>
+  <div class="map-block ground-gress"></div> -->
+</div>
+
+
+
+
+<!-- <h2>Here are some links to help you start: </h2> -->
+<!-- <ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul> -->
+
+<!-- <router-outlet></router-outlet> -->
