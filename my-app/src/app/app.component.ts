@@ -34,8 +34,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-
-  //
   // init
   //
   ngOnInit() {
@@ -47,50 +45,47 @@ export class AppComponent implements OnInit {
     window.addEventListener('keydown', this.keyboard.bind(this))
   }
 
+  // gravity
+  //
   gravity() {
-    this.refresh_history()
+    this.go('down');
+  }
 
-    // change position !!!
-    this.char.y++
-
-    // get kit
-    let rest, place;
-    ({ place, ...rest } = this.getKit())
-
+  // check solid
+  //
+  check_solid() {
+    let { place, ...rest } = this.getKit(); // get kit
     if (place != 0) this.go_back();
   }
 
+  // keyboard
+  //
   keyboard(e) {
-    // get kit
-    let rest, place, under_place;
-    ({ under_place, ...rest } = this.getKit())
-
-    this.refresh_history()
-
+    let { place, under_place, ...rest } = this.getKit(); // get kit
     // change position !!!
-    if (e.key == 'ArrowRight') this.char.x++;
-    if (e.key == 'ArrowLeft') this.char.x--;
-    if (e.key == 'ArrowUp' && under_place != 0) this.char.y -= 4;
-
-    // get kit
-    ({ place, ...rest } = this.getKit())
-
-    if (place != 0) this.go_back();
+    e.key == 'ArrowRight' ? this.go('right') :
+      e.key == 'ArrowLeft' ? this.go('left') :
+        e.key == 'ArrowUp' && under_place != 0 ? this.go('jump') : '';
   };
+
+  // go
+  //
+  go(type) {
+    this.refresh_history();
+    type == 'right' ? this.char.x++ :
+      type == 'left' ? this.char.x-- :
+        type == 'down' ? this.char.y++ :
+          type == 'jump' ? this.char.y -= 4 : '';
+    this.check_solid();
+  }
 
   // get kit
   //
   getKit() {
-
     let under_place = 0;  // but be able to jump when whole
-
-    try{
-      under_place = this.game_map[this.char.y+1][this.char.x]
-      log(this.game_map[this.char.y+1][this.char.x], '<<<< 2')
-    }catch(err){
-      log('error because we go beyond the array!!!')
-    }
-
+    
+    if (this.char.y < 9) // is not bottom
+      under_place = this.game_map[this.char.y + 1][this.char.x];
     return {
       place: this.game_map[this.char.y][this.char.x],
       under_place
