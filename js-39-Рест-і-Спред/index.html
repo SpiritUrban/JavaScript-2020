@@ -1,0 +1,43 @@
+<script>
+    const log = console.log;
+
+    log('Lesson 39');
+
+    const arr = [1, 2, 3, 4];
+    log(arr)
+
+    // spred
+    log('Spred ', ...[1, 2, 3, 4])
+
+    // dest.as. + ...rest
+    let [first, second, ...rest] = arr;
+    log(first, second, rest)
+
+    // function + ..rest
+    function foo (a,b,c, ...rest) {
+        log(" I'm foo() ", arguments)
+        log(a,b,c)
+        log(rest)
+
+        rest.map((x)=> log(x))
+        // arguments.map((x)=> log(x)) - not possible
+
+    }
+    foo(1,2,3,4,5,6,7,8,'sfsdf','sdgsr')
+
+
+
+    const arr2 = ['1', '2', '3', '4'];
+    //const arr3 = arr.concat(arr2);
+    const arr3 = [...arr, ...arr2];
+
+    const [one, two, ...rest_5] = [...arr, ...arr2];
+
+    log(arr3)
+    log(
+        one,
+        rest_5
+    );
+
+
+</script>

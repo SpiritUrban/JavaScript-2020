@@ -1,0 +1,37 @@
+<script>
+    const log = console.log;
+
+    log('Lesson 37');
+
+
+
+    const o = {
+        about: 'About this object',
+        position: {x:1, y:7, z:0},
+        arr: [1,2,3,88,11,3345],
+        arr2: [
+            {a: 3},
+            {r:77, h:99},
+            {as: 12345}
+        ]
+    }
+
+    let {
+        about,
+        position: {x,y,z},
+        arr: [first_item,,,midle],
+        arr2: [
+            {a},
+            {r, h}
+        ]
+    } = o;
+
+log(
+    about,
+    x,y,z,
+    first_item, midle,
+    a, r, h
+)
+
+
+</script>
