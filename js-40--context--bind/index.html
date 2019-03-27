@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #222;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        Context. <br>
+        Area of visibility. <br>
+        Lexical scope. <br>
+        Name space. <br>
+        this
+    </h1>
+
+    <h1>
+        Lexical.
+        Lexicon = words.
+    </h1>
+
+    <h1>
+        this == Context == object or function of {}
+    </h1>
+
+    <h1>
+        Mental context.
+    </h1>
+
+    <script>
+
+        console.log(this, '--global context.')
+
+        function x() {
+            
+            console.log(this, '-- context of function.')
+        }
+        x()
+
+        class Yo {
+            constructor() {
+            }
+            keyboard = function(){
+                console.log(this)
+            }
+            q = 999;
+            w(){
+                console.log(this, '-- context of object.', this.q)
+                window.addEventListener('keydown', this.keyboard.bind(this))
+
+                // setInterval(function(){
+                //     console.log(this.q, this)
+                // }, 1000)
+            }
+        }
+        const yo = new Yo()
+        yo.w()
+
+
+        const o = {a:1};
+        const b = o;
+        b.a = 5555;
+
+        console.log(o, b);
+
+    </script>
+
+
+</body>
+
+</html>
