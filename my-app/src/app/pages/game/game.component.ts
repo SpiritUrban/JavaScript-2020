@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 const log = console.log;
 
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-game',
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.scss']
 })
+export class GameComponent implements OnInit {
 
-
-export class AppComponent implements OnInit {
+  constructor() { }
 
   title = 0;
 
@@ -34,17 +35,15 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // init
-  //
   ngOnInit() {
-    // just
-    setInterval(() => this.title++, 1000)
-    // gravity
-    setInterval(this.gravity.bind(this), 100)
-    // keyboard
-    window.addEventListener('keydown', this.keyboard.bind(this))
+        // just
+        setInterval(() => this.title++, 1000)
+        // gravity
+        setInterval(this.gravity.bind(this), 100)
+        // keyboard
+        window.addEventListener('keydown', this.keyboard.bind(this))
   }
-
+  
   // gravity
   //
   gravity() {
