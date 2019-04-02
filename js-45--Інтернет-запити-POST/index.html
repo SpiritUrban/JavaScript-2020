@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1> <b>fetch</b> POST</h1>
+    <h2> 
+        backend(node.js), 
+        json, 
+        CORS policy, 
+        body handling, 
+        GET,PUT,POST,DELETE (rest),
+        insomnia
+     </h2>
+
+    <script>
+        // fetch('https://api.github.com/users')
+        //     .then((r) => {
+        //         console.log(r)
+        //         // console.log(r.json())
+        //         return r.json()
+        //     })
+        //     .then((arr) => {
+        //         console.log(arr)
+        //     })
+
+
+        // fetch('http://localhost:8080')
+        //     .then((r) => {
+        //         console.log(r)
+        //         // console.log(r.json())
+        //         // return r.json()
+        //         return r.json()
+        //     })
+        //     .then((d) => {
+        //         console.log(d)
+        //     })
+
+        const options = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            // body: JSON.stringify({ a: 1, b: 2 })
+            // body: { a: 1, b: 2 }
+            body: '{"a":"388"}'
+        }
+
+        fetch('http://localhost:8080', options)
+            .then((r) => {
+                console.log(r)
+                // console.log(r.json())
+                // return r.json()
+                return r.json()
+            })
+            .then((d) => {
+                console.log(d)
+            })
+
+
+    </script>
+
+</body>
+
+</html>

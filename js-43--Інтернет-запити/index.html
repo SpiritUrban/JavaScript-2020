@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> AJAX </h1>
+    <h1> fetch </h1>
+
+    <script>
+
+        // sync
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:5500/js-43--%D0%86%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%B7%D0%B0%D0%BF%D0%B8%D1%82%D0%B8/', false);
+        xhr.send();
+        console.log(xhr.response);
+
+        // async
+        const axhr = new XMLHttpRequest();
+        axhr.open('GET', 'http://localhost:5500/js-43--%D0%86%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%B7%D0%B0%D0%BF%D0%B8%D1%82%D0%B8/', true);
+        axhr.send();
+        axhr.onreadystatechange = function () {
+            console.log('--', axhr.response);
+        }
+
+        // fetch
+        fetch('http://localhost:5500/js-43--%D0%86%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%B7%D0%B0%D0%BF%D0%B8%D1%82%D0%B8/')
+            .then(res => res.text())
+            .then(result => { console.log(result) })
+            .catch((err) => console.log(err))
+
+        // js-clan.com
+
+    </script>
+</body>
+
+</html>
