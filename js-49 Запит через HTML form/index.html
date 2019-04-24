@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            background: #333;
+            color: palegoldenrod;
+        }
+
+        h1{
+            text-align: center;
+        }
+        .col {
+            width: 12em;
+            display: inline-block;
+            margin: 0 2em;
+            vertical-align: top;
+        }
+        input {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            box-sizing: content-box;
+        }
+        .l{
+            width: 7em;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML form + preventDefault()</h1><hr><br>
+
+    <a href="http://localhost:8080?a=44">Link to</a> <hr><br>
+
+    <form id="first" action="http://localhost:8080"  method="POST" target="_blank">
+        <input id="name" type="text" name="user" placeholder="Name" value="Jon">
+        <button>Send</button>
+    </form>
+
+    <br><hr><br>
+    
+    <form action="http://localhost:8080" method="POST" >
+        <div class="col">
+
+            The text input. (First name)<br>
+            <input type="text" name="firstname" value="Mickey"><br><br>
+
+            The checkbox <br>
+            <input type="checkbox"><br><br>
+
+            The color picker <br>
+            <input type="color" name="color" value="#500000">
+            <input type="color" name="color2" value="#ff0000"><br><br>
+
+            The date picker <br>
+            <input type="date"><br><br>
+
+            The datetime-local <br>
+            <input type="datetime-local"><br><br>
+
+            The email input <br>
+            <input type="email"><br><br>
+
+            The file input <br>
+            <input type="file"><br><br>
+
+            The hidden input <br>
+            <input type="hidden" name="xxx" value="some hidden"><br><br>
+
+            The month input <br>
+            <input type="month"><br><br>
+
+            The number input (2 to 33)<br>
+            <input type="number" min="2" max="33" value="10"><br><br>
+        </div>
+
+        <div class="col">
+
+            The password input (******)<br>
+            <input type="password"><br><br>
+
+            The radio button<br>
+            <input type="radio"><br><br>
+
+            The range input<br>
+            <input type="range"><br><br>
+
+            The reset button. Reset to default values. <br>
+            <input type="reset"><br><br>
+
+            The search input. (Has [x])<br>
+            <input type="search"><br><br>
+
+            The phone input<br>
+            <input type="tel" name="tel" pattern="2[0-9]{3}-[0-9]{3}"><br><br>
+
+            The time input<br>
+            <input type="time"><br><br>
+
+            The url input. Should start with (http://, https://, ftp://) <br>
+            <input type="url"><br><br>
+
+            The week input<br>
+            <input type="week"><br><br>
+        </div>
+
+        <div class="l">
+                The image SUBMIT<br>
+                <input type="image"  name="image" src="./submit-button.png" ><br><br>
+        
+                The SUBMIT <br>
+                <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <script>
+        const form = document.querySelector('#first');
+        const name = document.querySelector('#name');
+
+        console.log(form);
+
+        form.addEventListener('submit', (event)=>{
+            event.preventDefault();
+
+            console.log('submit:', name.value);
+            if(name.value.length <= 1 ) alert('Name is required')
+            else console.log('>>>>> fetch >>>>>')
+
+        })
+
+    </script>
+
+</body>
+
+</html>

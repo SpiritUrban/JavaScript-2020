@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            background: #222;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSON</h1>
+    <script>
+        const json = '{"a":"Hello"}'; // actually it string
+        const obj = JSON.parse(json);
+        const json_2 = JSON.stringify(obj);
+        console.log(
+            'JSON',
+            json,
+            obj,
+            json_2,
+            '\n',
+            JSON
+        );
+
+        const j = `{
+                "a": "Hello",
+                "b": 12345,
+                "c": true,
+                "d": null,
+                "e": {
+                    "a": 1
+                },
+                "f": [1,2,3,"hello",true, null],
+                "g": "function(){} - ignore or just text"
+            }`
+
+        const o = JSON.parse(j);
+
+        console.log(o);
+
+        const o1 = {
+            a: 1,
+            f: function(){}
+        };
+
+        const j1 = JSON.stringify(o1);
+
+        console.log('j1 - ', j1);
+
+    </script>
+</body>
+</html>
