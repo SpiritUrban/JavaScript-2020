@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  main.limit
+    h1 The "todo" page
+    p Welcome to #{title}
+
+    table#todo_list.table.table-dark
+      thead
+        tr
+          th(scope='col') #
+          th(scope='col') Title
+          th(scope='col') Description
+          th(scope='col') Controls
+      tbody
+        each todo, index in todos
+          tr
+            th(scope='row') #{index+1}
+            td #{todo.title}
+            td #{todo.description}
+            td(style="display: flex;")
+              if !todo.done
+                button#ready.btn.btn-success(data-id=todo.id) Ready
+              else
+                i.fas.fa-check-circle &nbsp;&nbsp;&nbsp;&nbsp;
+              |  &nbsp;
+              button.btn.btn-danger Delete
+
+    .hr
+
+    form#todo
+      .form-group
+        label(for='exampleInputEmail1') Title
+        input#title.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter task title')
+        small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+      .form-group
+        label(for='exampleInputPassword1') Description
+        textarea#description.form-control(rows="3" placeholder='Enter task description')
+      button.btn.btn-primary(type='submit') Submit
+
+  script(src="js/todo.js")
