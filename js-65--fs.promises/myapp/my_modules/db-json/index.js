@@ -26,12 +26,8 @@ async function get(fileName) {
   try {
     const json = await _fs.readFile(fileName, 'utf-8')
     return JSON.parse(json)
-
   } catch (err) { throw err }
 }
-
-
-
 
 /**
  * Post record.
@@ -56,11 +52,8 @@ async function post(fileName, record) {
     await setRecords(fileName, todos);
     // ->
     return true
-
   } catch (err) { throw err }
 }
-
-
 
 /**
  * Edit record.
@@ -74,17 +67,15 @@ async function post(fileName, record) {
 async function edit(fileName, id, fields) {
   try {
     // get all records
-    const todos = await getRecords(fileName);
+    const records = await getRecords(fileName);
     // change several fields (in record)
-    const modified_todos = updateTodos(todos, id, fields);
+    const modified_records = updateRecords(records, id, fields);
     // save all records
-    await setRecords(fileName, modified_todos)
+    await setRecords(fileName, modified_records)
     // ->
     return true
   } catch (err) { throw err }
 }
-
-
 
 /**
  * Delete record. !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -105,16 +96,14 @@ async function del(fileName, id) {
     await setRecords(fileName, modified_todos)
     // ->
     return true
-  } catch (err) {
-    throw err
-  }
+  } catch (err) { throw err }
 }
+
 
 
 ////////////////////////////////////////////////////////////
 //                         private                        //
 ////////////////////////////////////////////////////////////
-
 
 /**
  * Get records.
@@ -141,7 +130,6 @@ async function setRecords(fileName, todos) {
   await _fs.writeFile(fileName, json2) //....................... 5
 }
 
-
 /**
  * Update records.
  *
@@ -151,19 +139,18 @@ async function setRecords(fileName, todos) {
  * @return {array} array
  * @private
  */
-function updateTodos(todos, id, fields) {
-  todos.map((todo, i) => {
+function updateRecords(records, id, fields) {
+  records.map((record, i) => {
     // 1) teke record by id 
-    if (todo.id == id) {
+    if (record.id == id) {
       // 2) change several fields
       for (let key in fields) {
-        todos[i][key] = fields[key]
+        records[i][key] = fields[key]
       }
     }
   })
-  return todos
+  return records
 }
-
 
 
 
@@ -171,5 +158,3 @@ exports.get = get;
 exports.post = post;
 exports.edit = edit;
 exports.del = del;
-
-
