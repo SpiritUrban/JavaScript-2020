@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Super micro services!</h1>
+
+    <button onclick="submit()">MEGA BUTON !!!</button>
+
+    <script>
+
+        const log = console.log;
+
+        async function submit() {
+            log('clicked')
+
+            const raw = await fetch(`http://localhost:3001`)
+            const responce = await raw.text()
+            const lable = responce;
+            log(lable);
+
+            const raw2 = await fetch(`http://localhost:3002/${lable}`)
+            const responce2 = await raw2.text()
+            log(responce2);
+        }
+
+    </script>
+
+</body>
+
+</html>
